@@ -1,5 +1,5 @@
 <?php
 
-include '.\helpers\Bootstrap.php';
+include './helpers/Bootstrap.php';
 
 Bootstrap::createApp();

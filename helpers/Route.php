@@ -27,13 +27,23 @@ class Route {
         return $route;
     }
 
-    public static function dispatch($route){
+    public static function dispatch($route, $arg, $arg2){
         if (!count($route)){
             echo "";
         }
         include './controllers/'.$route['controller'].'.php';
         $controller = new $route['controller'];
         $method = $route['method'];
+        if ($arg2 !== ''){
+            $controller->$method($arg, $arg2);
+            return;
+        }
+
+        if ($arg !== ''){
+            $controller->$method($arg);
+            return;
+        }
+
         $controller->$method();
     }
 
